@@ -2,7 +2,7 @@
 
 **Transparencia de modelos de Machine Learning para el cálculo de Reservas Técnicas y RCS bajo el marco CUSF (México)**
 
-> Proyecto de servicio social · Facultad de Ciencias, UNAM  
+> Proyecto de investigación · Facultad de Ciencias, UNAM  
 > Autor: Gabriel Fernando Rosas Zepeda  
 > Marco regulatorio: Circular Única de Seguros y Fianzas (CUSF) · CNSF · versión compulsada 07-10-2024
 

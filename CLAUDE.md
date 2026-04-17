@@ -12,7 +12,7 @@
 | Tipo | Paper académico |
 | Institución | Facultad de Ciencias, UNAM |
 | Autor | Gabriel Fernando Rosas Zepeda |
-| Duración | 6 meses (inicio: abril 2026) |
+| Duración | 6 meses (inicio: mayo 2026) |
 | Autonomía | Alta — el autor define metodologías y resultados; la tutora supervisa y redirige si es necesario |
 
 ---
