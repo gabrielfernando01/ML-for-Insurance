@@ -37,3 +37,4 @@ data/external/*
 # OS
 .DS_Store
 .directory
+.vscode/
