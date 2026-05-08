@@ -1,0 +1,17 @@
+21:25:54 | INFO | ============================================================
+21:25:54 | INFO | INICIO: Extracción y merge crudo 2021-2024
+21:25:54 | INFO | ============================================================
+21:27:40 | INFO |   ✓ 2021 Emision:    816,498 filas  (105.9s)
+21:27:51 | INFO |   ✓ 2021 Siniestros:     81,107 filas  (10.7s)
+21:28:28 | INFO |   ✓ 2021 Comisiones:    211,493 filas  (36.4s)
+21:30:19 | INFO |   ✓ 2022 Emision:    879,533 filas  (111.2s)
+21:30:27 | INFO |   ✓ 2022 Siniestros:     72,622 filas  (8.7s)
+21:31:01 | INFO |   ✓ 2022 Comisiones:    204,954 filas  (33.9s)
+21:32:48 | INFO |   ✓ 2023 Emision:    888,268 filas  (106.5s)
+21:32:56 | INFO |   ✓ 2023 Siniestros:     71,234 filas  (8.3s)
+21:33:25 | INFO |   ✓ 2023 Comisiones:    200,254 filas  (29.3s)
+21:35:25 | INFO |   ✓ 2024 Emision:    924,290 filas  (119.3s)
+21:35:34 | INFO |   ✓ 2024 Siniestros:     72,537 filas  (9.0s)
+21:36:08 | INFO |   ✓ 2024 Comisiones:    211,202 filas  (34.1s)
+21:36:08 | INFO | 
+Guardando parquets crudos ...
