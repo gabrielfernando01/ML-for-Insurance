@@ -23,6 +23,11 @@ data/external/*
 !data/processed/.gitkeep
 !data/external/.gitkeep
 
+# Prepared — solo Parquet versionados
+data/prepared/*
+!data/prepared/*.parquet
+!data/prepared/.gitkeep
+
 # Modelos entrenados
 *.pkl
 *.joblib
