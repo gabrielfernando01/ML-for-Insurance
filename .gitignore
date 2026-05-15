@@ -15,7 +15,14 @@ build/
 # Jupyter
 .ipynb_checkpoints/
 
-# Datos (nunca al repo)
+# Datos — formatos tabulares nunca al repo
+*.csv
+*.txt
+*.parquet
+*.xlsx
+*.xls
+
+# Datos por directorio
 data/raw/*
 data/processed/*
 data/external/*
@@ -23,9 +30,11 @@ data/external/*
 !data/processed/.gitkeep
 !data/external/.gitkeep
 
-# Prepared — solo Parquet versionados
+# Prepared — solo estos tres Parquet versionados
 data/prepared/*
-!data/prepared/*.parquet
+!data/prepared/emision.parquet
+!data/prepared/siniestros.parquet
+!data/prepared/comisiones.parquet
 !data/prepared/.gitkeep
 
 # Modelos entrenados
@@ -42,4 +51,3 @@ data/prepared/*
 # OS
 .DS_Store
 .directory
-.vscode/
