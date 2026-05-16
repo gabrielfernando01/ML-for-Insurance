@@ -124,5 +124,5 @@ jupyter nbconvert --to notebook --execute notebooks/prepare_datasets.ipynb
 ## Fuente de datos
 
 Comisión Nacional de Seguros y Fianzas — Estadísticas de Seguros  
-[https://www.cnsf.gob.mx](https://www.cnsf.gob.mx)  
+[InstitucionesSociedadesMutualistas](https://www.cnsf.gob.mx/EntidadesSupervisadas/InstitucionesSociedadesMutualistas/Paginas/DetalladaSeguros.aspx)  
 Ramo: Vida Individual | Período: 2021–2024
