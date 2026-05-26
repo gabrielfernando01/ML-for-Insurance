@@ -1,9 +1,5 @@
 <p align="center">
-  <img src=".github/logo.png" width="90" alt="Escudo UNAM"/>
-</p>
-
-<p align="center">
-  <img src=".github/cover.svg" width="100%" alt="ML para Pricing en Aseguradoras"/>
+  <img src=".github/cover.png" alt="ML para Pricing en Aseguradoras" width="100%"/>
 </p>
 
 ---
