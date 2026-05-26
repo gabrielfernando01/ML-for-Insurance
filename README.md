@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/logo.jpeg" width="90" alt="Escudo UNAM"/>
+  <img src=".github/logo.png" width="90" alt="Escudo UNAM"/>
 </p>
 
 <p align="center">
