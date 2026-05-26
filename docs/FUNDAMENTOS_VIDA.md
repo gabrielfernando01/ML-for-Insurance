@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/cover00.png" alt="ML para Pricing en Aseguradoras" width="100%"/>
+  <img src="../.github/cover00.png" alt="ML para Pricing en Aseguradoras" width="100%"/>
 </p>
 
 # FUNDAMENTOS DE PRICING ACTUARIAL — VIDA INDIVIDUAL
