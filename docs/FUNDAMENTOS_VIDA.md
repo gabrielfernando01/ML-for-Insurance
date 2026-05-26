@@ -1,10 +1,9 @@
+<p align="center">
+  <img src=".github/cover00.png" alt="ML para Pricing en Aseguradoras" width="100%"/>
+</p>
+
 # FUNDAMENTOS DE PRICING ACTUARIAL — VIDA INDIVIDUAL
 ### Referencia conceptual para `ML-for-Insurance`
-
-> **Audiencia**: Actuario con familiaridad técnica.  
-> **Tono**: Intuitivo primero, preciso siempre. Sin ser un machote de fórmulas.  
-> **Alcance principal**: Vida Individual (CNSF 2021–2024).  
-> **Anexo**: contraste con Vida Grupo y Daños (Automóviles).
 
 ---
 
