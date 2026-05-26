@@ -1,3 +1,9 @@
+<p align="center">
+  <img src=".github/cover.svg" alt="ML para Pricing en Aseguradoras — UNAM 2026" width="100%"/>
+</p>
+
+---
+
 # ML-for-Insurance
 
 Investigación sobre capacidad predictiva en pricing de Seguro de Vida Individual:  
