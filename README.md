@@ -1,5 +1,9 @@
 <p align="center">
-  <img src=".github/cover.svg" alt="ML para Pricing en Aseguradoras — UNAM 2026" width="100%"/>
+  <img src=".github/logo.jpeg" width="90" alt="Escudo UNAM"/>
+</p>
+
+<p align="center">
+  <img src=".github/cover.svg" width="100%" alt="ML para Pricing en Aseguradoras"/>
 </p>
 
 ---
