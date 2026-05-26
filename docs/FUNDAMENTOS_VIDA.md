@@ -14,13 +14,13 @@ El ciclo actuarial de pricing no es un cálculo que ocurre una sola vez. Es iter
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  1. TARIFICACIÓN                                                 │
+│  1. TARIFICACIÓN                                                │
 │     El actuario calcula la prima al inicio del período.         │
 │     Usa tablas de mortalidad, tasas de interés, gastos          │
 │     esperados y utilidad objetivo.                              │
 │                                                                 │
 │  2. EMISIÓN Y VIGENCIA                                          │
-│     Las pólizas se emiten. La prima se cobra (en un pago       │
+│     Las pólizas se emiten. La prima se cobra (en un pago        │
 │     o en fraccionamientos periódicos).                          │
 │                                                                 │
 │  3. CIERRE DEL PERÍODO                                          │
