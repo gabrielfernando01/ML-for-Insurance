@@ -33,7 +33,6 @@
     overflow-x: hidden;
   }
 
-  /* GRID BACKGROUND */
   body::before {
     content: '';
     position: fixed;
@@ -118,6 +117,21 @@
     font-size: 13px;
     margin-bottom: 4px;
   }
+
+  /* STATUS PILL */
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-top: 6px;
+  }
+  .status-ok { background: rgba(78,203,141,0.12); color: var(--ok); border: 1px solid rgba(78,203,141,0.3); }
+  .status-pending { background: rgba(232,136,58,0.12); color: var(--warn); border: 1px solid rgba(232,136,58,0.3); }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 
   /* STATS ROW */
   .stats-row {
@@ -290,6 +304,28 @@
   .tag-info   { background: rgba(91,141,238,0.2); color: var(--accent2); }
   .tag-ok     { background: rgba(78,203,141,0.2); color: var(--ok); }
 
+  /* SEVERITY DIVIDER */
+  .severity-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0 16px;
+    grid-column: 1 / -1;
+  }
+  .severity-divider span {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .severity-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
   /* KEY STATS TABLE */
   .data-table {
     width: 100%;
@@ -323,6 +359,17 @@
   .val-warn   { color: var(--warn); }
   .val-ok     { color: var(--ok); }
   .val-accent { color: var(--accent); }
+
+  /* SEVERITY GROUP ROWS */
+  .data-table tr.severity-row td {
+    background: var(--surface2);
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-bottom: 1px solid var(--border);
+  }
 
   /* JOIN DIAGRAM */
   .join-diagram {
@@ -475,6 +522,135 @@
     text-align: right;
   }
 
+  /* PIPELINE STATUS */
+  .pipeline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .pipeline-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+
+  .pipeline-card-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pipeline-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(37,42,56,0.4);
+    font-size: 11px;
+  }
+
+  .pipeline-step:last-child { border-bottom: none; }
+
+  .step-icon {
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-text { color: var(--text); line-height: 1.4; }
+  .step-note { font-family: var(--mono); font-size: 9px; color: var(--muted); margin-top: 2px; }
+
+  /* ROADMAP */
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .roadmap-phase {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+  }
+
+  .roadmap-phase.next {
+    border-color: rgba(232,197,71,0.35);
+    background: rgba(232,197,71,0.03);
+  }
+
+  .roadmap-phase.next::before {
+    content: 'SIGUIENTE PASO';
+    position: absolute;
+    top: -1px; right: 16px;
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    background: var(--bg);
+    padding: 0 8px;
+    transform: translateY(-50%);
+  }
+
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .phase-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+
+  .phase-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .phase-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(37,42,56,0.3);
+    line-height: 1.4;
+  }
+
+  .phase-item:last-child { border-bottom: none; }
+
+  .check-pending { color: var(--border); flex-shrink: 0; }
+  .check-next { color: var(--accent); flex-shrink: 0; }
+
+  /* EXEC SUMMARY */
+  .exec-table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
   /* FOOTER */
   .footer {
     border-top: 1px solid var(--border);
@@ -499,6 +675,8 @@
   .d3 { animation-delay: 0.3s; }
   .d4 { animation-delay: 0.4s; }
   .d5 { animation-delay: 0.5s; }
+  .d6 { animation-delay: 0.6s; }
+  .d7 { animation-delay: 0.7s; }
 
   @media (max-width: 720px) {
     .stats-row { grid-template-columns: 1fr; }
@@ -508,6 +686,8 @@
     .arrow { display: none; }
     .skew-grid { grid-template-columns: 1fr; }
     .header { grid-template-columns: 1fr; }
+    .pipeline-grid { grid-template-columns: 1fr; }
+    .roadmap-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -528,39 +708,74 @@
       <strong>ML-for-Insurance</strong>
       Fuente: CNSF<br>
       Periodo: 2021–2024<br>
-      Actualización: Mayo 2026<br>
-      Entorno: Python 3.11
+      Actualización: 2 Jun 2026<br>
+      Entorno: Python 3.11.2
+      <div style="margin-top:10px;display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+        <span class="status-pill status-ok"><span class="status-dot"></span>Pipeline completo</span>
+        <span class="status-pill status-pending"><span class="status-dot"></span>Modelado pendiente</span>
+      </div>
     </div>
   </div>
 
   <!-- STATS ROW -->
   <div class="stats-row animate d2">
     <div class="stat-card emision">
-      <div class="stat-label">emision_clean_v2.csv</div>
+      <div class="stat-label">emision.parquet</div>
       <div class="stat-number">3.5M</div>
-      <div class="stat-sub">filas · 12 columnas</div>
+      <div class="stat-sub">3,508,589 filas · 12 columnas · 57.2 MB</div>
       <div class="stat-cols">
-        <span>PRIMA_EMITIDA</span><span>SUMA_ASEGURADA</span><span>NUM_ASEGURADOS</span>
+        <span>PRIMA_EMITIDA</span><span>SUMA_ASEGURADA</span><span>NUMERO_DE_ASEGURADOS</span>
         <span>COBERTURA</span><span>FORMA_DE_VENTA</span>
       </div>
     </div>
     <div class="stat-card siniestros">
-      <div class="stat-label">siniestros_clean_v2.csv</div>
+      <div class="stat-label">siniestros.parquet</div>
       <div class="stat-number">297K</div>
-      <div class="stat-sub">filas · 13 columnas</div>
+      <div class="stat-sub">297,501 filas · 13 columnas · 4.8 MB</div>
       <div class="stat-cols">
         <span>MONTO_PAGADO</span><span>MONTO_RECLAMADO</span><span>VENCIMIENTOS</span>
         <span>CAUSA_DEL_SINIESTRO</span>
       </div>
     </div>
     <div class="stat-card comisiones">
-      <div class="stat-label">comisiones_clean_v2.csv</div>
+      <div class="stat-label">comisiones.parquet</div>
       <div class="stat-number">827K</div>
-      <div class="stat-sub">filas · 16 columnas</div>
+      <div class="stat-sub">827,903 filas · 16 columnas · 13.6 MB</div>
       <div class="stat-cols">
-        <span>COMISIONES_DIRECTAS</span><span>PRIMA_CEDIDA</span><span>FONDO_INVERSIÓN</span>
+        <span>COMISIONES_DIRECTAS</span><span>PRIMA_CEDIDA</span><span>FONDO_DE_INVERSIÓN</span>
         <span>TIPO_DIVIDENDO</span>
       </div>
+    </div>
+  </div>
+
+  <!-- RESUMEN EJECUTIVO DE ESTADO -->
+  <div class="section animate d2">
+    <div class="section-title">
+      <span class="num">00</span> Estado del proyecto
+    </div>
+    <p class="section-desc">Pipeline de datos completo y funcional. El código de modelado aún no existe — el proyecto está en el punto exacto de inflexión entre "datos listos" y "construir modelos".</p>
+
+    <div class="exec-table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Fase</th>
+            <th>Estado</th>
+            <th>Observación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Extracción de fuentes CNSF</td><td class="val-ok">✅ Completa</td><td>4 xlsx → CSV concatenados</td></tr>
+          <tr><td>Limpieza y normalización</td><td class="val-ok">✅ Completa</td><td>Headers, sentinel rows, snake_case</td></tr>
+          <tr><td>Casteo de tipos</td><td class="val-ok">✅ Completo</td><td>Numéricas como float64</td></tr>
+          <tr><td>Export a Parquet</td><td class="val-ok">✅ Completo</td><td>Punto de entrada para análisis</td></tr>
+          <tr><td>Documentación teórica</td><td class="val-ok">✅ Excelente</td><td>3 documentos (~40 KB)</td></tr>
+          <tr><td>Construcción de cohortes</td><td class="val-warn">❌ Pendiente</td><td>← Siguiente paso lógico</td></tr>
+          <tr><td>Modelo GLM baseline</td><td class="val-warn">❌ Pendiente</td><td>—</td></tr>
+          <tr><td>Modelo ML challenger</td><td class="val-warn">❌ Pendiente</td><td>—</td></tr>
+          <tr><td>Comparación interp./desempeño</td><td class="val-warn">❌ Pendiente</td><td>Objetivo final</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -569,9 +784,12 @@
     <div class="section-title">
       <span class="num">01</span> Problemas estructurales
     </div>
-    <p class="section-desc">Obstáculos que afectan la viabilidad del join y la construcción de features antes de cualquier modelo.</p>
+    <p class="section-desc">Obstáculos que afectan la viabilidad del join y la construcción de features antes de cualquier modelo. Clasificados por severidad.</p>
 
     <div class="problems-grid">
+
+      <!-- CRÍTICO -->
+      <div class="severity-divider"><span style="color:var(--danger)">● Crítico</span></div>
 
       <div class="problem-card">
         <div class="tag tag-danger">Crítico</div>
@@ -579,65 +797,104 @@
         <div class="problem-title">Sin foreign key explícito</div>
         <div class="problem-body">
           Las tres tablas no comparten un identificador común. El join debe inferirse por
-          clave compuesta <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">ANIO + ENTIDAD + EDAD + SEXO + PLAN + MODALIDAD</code>.
-          Solo 6 columnas son comunes a las tres tablas; <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">COBERTURA</code> existe en emisión y siniestros pero <strong>no en comisiones</strong>.
+          clave compuesta <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">ANIO × EDAD × ENTIDAD × PLAN × MODALIDAD × SEXO</code>.
+          La relación no es 1:1 por diseño (3.5M vs 297K vs 827K filas). El join producirá muchos-a-muchos
+          que requieren agregación previa por cohorte.
         </div>
       </div>
 
       <div class="problem-card">
         <div class="tag tag-danger">Crítico</div>
-        <div class="problem-icon icon-danger">📐</div>
-        <div class="problem-title">Granularidades distintas entre tablas</div>
+        <div class="problem-icon icon-danger">🔗</div>
+        <div class="problem-title">COBERTURA ausente en comisiones</div>
         <div class="problem-body">
-          Emisión tiene 3.5M filas, siniestros 297K y comisiones 827K. La relación
-          no es 1-a-1 por diseño: un segmento de emisión puede tener cero siniestros
-          (buena experiencia) o múltiples. El join producirá muchos-a-muchos que
-          requieren agregación previa.
+          <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">COBERTURA</code> existe en emisión y siniestros pero <strong>no en comisiones</strong>.
+          Impide un join de 3 tablas con esa columna en la clave. Solución: join parcial
+          emisión ↔ siniestros con 7 campos; comisiones se une con 6 campos por separado.
         </div>
       </div>
+
+      <div class="problem-card wide">
+        <div class="tag tag-danger">Crítico</div>
+        <div class="problem-icon icon-info">📊</div>
+        <div class="problem-title">Distribuciones extremadamente sesgadas — no aptas para GLM sin transformación</div>
+        <div class="problem-body">
+          Todas las columnas monetarias presentan sesgo positivo severo. La media supera entre 14× y 56× a la mediana.
+          Para el GLM baseline se requieren familias <strong>Tweedie/Gamma con enlace log</strong>.
+          Los modelos de árboles (GBM, LightGBM) toleran el sesgo mejor, lo que refuerza la hipótesis del proyecto.
+          Ver sección 03 para desglose por variable.
+        </div>
+      </div>
+
+      <!-- ATENCIÓN -->
+      <div class="severity-divider"><span style="color:var(--warn)">● Atención</span></div>
 
       <div class="problem-card">
         <div class="tag tag-warn">Atención</div>
         <div class="problem-icon icon-warn">🔢</div>
         <div class="problem-title">Valores negativos en columnas monetarias</div>
         <div class="problem-body">
-          <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">PRIMA_EMITIDA</code> min = −14.9M · <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">MONTO_RECLAMADO</code> min = −61.8M ·
-          <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">VENCIMIENTOS</code> min = −140.7M. Son reversas o ajustes contables válidos
-          pero distorsionan medias y features de severidad. Requieren política explícita:
-          excluir, marcar con flag binario, o usar valor absoluto.
+          7 columnas afectadas: <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">PRIMA_EMITIDA</code> (−14.9M) ·
+          <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">MONTO_RECLAMADO</code> (−61.8M) ·
+          <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">VENCIMIENTOS</code> (−140.7M) ·
+          <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">MONTO_PAGADO</code> (−18.2M) · y 3 más.
+          Son reversas/ajustes contables válidos. Requieren política explícita antes de modelar.
         </div>
       </div>
 
       <div class="problem-card">
         <div class="tag tag-warn">Atención</div>
-        <div class="problem-icon icon-warn">🏷</div>
-        <div class="problem-title">Valores centinela en categóricas</div>
+        <div class="problem-icon icon-warn">🔢</div>
+        <div class="problem-title">EDAD: cardinalidades inconsistentes entre tablas</div>
         <div class="problem-body">
-          En varias columnas aparecen registros con el nombre de la propia columna como
-          valor (e.g., <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">"PLAN DE LA POLIZA"</code>, <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">"SEXO"</code>, <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">"MONEDA"</code>). Son filas de
-          encabezado embebidas que sobrevivieron la limpieza inicial. Volumen bajo
-          (2–3 filas por caso) pero contaminan el vocabulario de las categóricas.
+          Emisión: 247 valores únicos · Siniestros: 117 · Comisiones: 198.
+          La discrepancia sugiere strings anómalos (rangos, texto, edades fuera de rango).
+          <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">EDAD</code> es tipo <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">str</code> en los Parquet — requiere casteo a <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">int</code>
+          y decisión sobre agrupamiento en bandas (18–30, 31–45…).
         </div>
       </div>
 
-      <div class="problem-card wide">
-        <div class="tag tag-info">Estructura de datos</div>
-        <div class="problem-icon icon-info">📊</div>
-        <div class="problem-title">Distribuciones extremadamente sesgadas — no aptas para GLM sin transformación</div>
+      <!-- BAJO -->
+      <div class="severity-divider"><span style="color:var(--ok)">● Bajo</span></div>
+
+      <div class="problem-card">
+        <div class="tag tag-ok">Bajo</div>
+        <div class="problem-icon icon-ok">🏷</div>
+        <div class="problem-title">Valores centinela en categóricas</div>
         <div class="problem-body">
-          Todas las columnas monetarias presentan sesgo positivo severo. La media supera entre 4× y 50× a la mediana.
-          El p95 de <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">SUMA_ASEGURADA</code> (81M MXN) es 80× su mediana (995K MXN).
-          Para modelos de pricing esto implica que la distribución de pérdidas no es Gaussiana:
-          se requieren familias Tweedie, Gamma o Log-Normal, o transformaciones log antes de
-          features lineales. Los modelos alternativos a GLM (GBM, Random Forest) toleran el sesgo
-          mejor, lo que refuerza la hipótesis del proyecto.
+          Filas con el nombre de la columna como valor (e.g., <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">"PLAN DE LA POLIZA"</code>,
+          <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">"SEXO"</code>, <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">"MONEDA"</code>).
+          El pipeline eliminó 3 por tabla, pero pueden quedar residuos en los Parquet.
+          Filtrar donde <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">columna == nombre_de_columna</code>.
+        </div>
+      </div>
+
+      <div class="problem-card">
+        <div class="tag tag-ok">Bajo</div>
+        <div class="problem-icon icon-ok">📍</div>
+        <div class="problem-title">ENTIDAD: valores espurios en emisión</div>
+        <div class="problem-body">
+          Al menos 2 valores no válidos: <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">"ENTIDAD "</code> (espacio trailing — residuo de limpieza) y
+          <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">"No disponible"</code> (sin geolocalización).
+          Deben filtrarse o consolidarse antes del join geográfico.
+        </div>
+      </div>
+
+      <div class="problem-card">
+        <div class="tag tag-ok">Bajo</div>
+        <div class="problem-icon icon-ok">💰</div>
+        <div class="problem-title">FONDO_DE_INVERSIÓN: 75% en cero</div>
+        <div class="problem-body">
+          En comisiones, el 75% de los valores es cero — indica mayoría de pólizas de protección pura
+          sin componente de ahorro. Derivar flag binario
+          <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">es_producto_ahorro</code> para separar carteras con comportamiento distinto.
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- PROBLEMA 2: JOIN -->
+  <!-- JOIN DIAGRAM -->
   <div class="section animate d4">
     <div class="section-title">
       <span class="num">02</span> Anatomía del join inferido
@@ -658,9 +915,9 @@
           <span class="col-pill col-partial">COBERTURA ↔ sin</span>
           <span class="col-pill col-partial">FORMA_DE_VENTA ↔ com</span>
           <span class="col-pill col-partial">MONEDA ↔ com</span>
+          <span class="col-pill col-partial">NUMERO_DE_ASEGURADOS ↔ com</span>
           <span class="col-pill col-excl">PRIMA_EMITIDA</span>
           <span class="col-pill col-excl">SUMA_ASEGURADA</span>
-          <span class="col-pill col-excl">NUM_ASEGURADOS</span>
         </div>
 
         <div class="arrow">⟷</div>
@@ -675,11 +932,11 @@
           <span class="col-pill col-shared">MODALIDAD_DE_LA_POLIZA</span>
           <span class="col-pill col-partial">COBERTURA ↔ emi</span>
           <span class="col-pill col-excl">CAUSA_DEL_SINIESTRO</span>
-          <span class="col-pill col-excl">NUM_SINIESTROS</span>
+          <span class="col-pill col-excl">NUMERO_DE_SINIESTROS</span>
           <span class="col-pill col-excl">MONTO_RECLAMADO</span>
           <span class="col-pill col-excl">MONTO_PAGADO</span>
           <span class="col-pill col-excl">VENCIMIENTOS</span>
-          <span class="col-pill col-excl">MONTO_REASEGURO</span>
+          <span class="col-pill col-excl">MONTO_DE_REASEGURO</span>
         </div>
 
         <div class="arrow">⟷</div>
@@ -694,11 +951,13 @@
           <span class="col-pill col-shared">MODALIDAD_DE_LA_POLIZA</span>
           <span class="col-pill col-partial">FORMA_DE_VENTA ↔ emi</span>
           <span class="col-pill col-partial">MONEDA ↔ emi</span>
+          <span class="col-pill col-partial">NUMERO_DE_ASEGURADOS ↔ emi</span>
           <span class="col-pill col-excl">PRIMA_CEDIDA</span>
           <span class="col-pill col-excl">COMISIONES_DIRECTAS</span>
-          <span class="col-pill col-excl">FONDO_INVERSIÓN</span>
-          <span class="col-pill col-excl">TIPO_DIVIDENDO</span>
-          <span class="col-pill col-excl">MONTO_RESCATE</span>
+          <span class="col-pill col-excl">FONDO_DE_INVERSIÓN</span>
+          <span class="col-pill col-excl">FONDO_DE_ADMINISTRACION</span>
+          <span class="col-pill col-excl">MONTO_DE_DIVIDENDOS</span>
+          <span class="col-pill col-excl">MONTO_DE_RESCATE</span>
         </div>
 
       </div>
@@ -720,7 +979,7 @@
     </div>
   </div>
 
-  <!-- PROBLEMA 3: SESGO -->
+  <!-- SESGO DISTRIBUCIONAL -->
   <div class="section animate d5">
     <div class="section-title">
       <span class="num">03</span> Sesgo distribucional — razón media/mediana
@@ -735,17 +994,17 @@
         <div class="ratio-bar">
           <div class="ratio-label">mediana</div>
           <div class="bar-track"><div class="bar-fill" style="width:0.18%;background:var(--ok)"></div></div>
-          <div class="ratio-val val-ok">4,394</div>
+          <div class="ratio-val val-ok">$4,394</div>
         </div>
         <div class="ratio-bar">
           <div class="ratio-label">media</div>
           <div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--warn)"></div></div>
-          <div class="ratio-val val-warn">248,091</div>
+          <div class="ratio-val val-warn">$248,092</div>
         </div>
         <div class="ratio-bar">
           <div class="ratio-label">p95</div>
           <div class="bar-track"><div class="bar-fill" style="width:26%;background:var(--danger)"></div></div>
-          <div class="ratio-val val-danger">635,092</div>
+          <div class="ratio-val val-danger">$635,092</div>
         </div>
         <div style="margin-top:10px;font-family:var(--mono);font-size:10px;color:var(--muted)">Razón media/mediana: <span style="color:var(--danger)">56×</span></div>
       </div>
@@ -756,17 +1015,17 @@
         <div class="ratio-bar">
           <div class="ratio-label">mediana</div>
           <div class="bar-track"><div class="bar-fill" style="width:1.5%;background:var(--ok)"></div></div>
-          <div class="ratio-val val-ok">995,821</div>
+          <div class="ratio-val val-ok">$995,821</div>
         </div>
         <div class="ratio-bar">
           <div class="ratio-label">media</div>
           <div class="bar-track"><div class="bar-fill" style="width:29%;background:var(--warn)"></div></div>
-          <div class="ratio-val val-warn">19,452,081</div>
+          <div class="ratio-val val-warn">$19,452,082</div>
         </div>
         <div class="ratio-bar">
           <div class="ratio-label">p95</div>
           <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--danger)"></div></div>
-          <div class="ratio-val val-danger">81,257,198</div>
+          <div class="ratio-val val-danger">$81,257,198</div>
         </div>
         <div style="margin-top:10px;font-family:var(--mono);font-size:10px;color:var(--muted)">Razón media/mediana: <span style="color:var(--danger)">19×</span></div>
       </div>
@@ -777,17 +1036,17 @@
         <div class="ratio-bar">
           <div class="ratio-label">mediana</div>
           <div class="bar-track"><div class="bar-fill" style="width:7%;background:var(--ok)"></div></div>
-          <div class="ratio-val val-ok">44,698</div>
+          <div class="ratio-val val-ok">$44,698</div>
         </div>
         <div class="ratio-bar">
           <div class="ratio-label">media</div>
           <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--warn)"></div></div>
-          <div class="ratio-val val-warn">611,150</div>
+          <div class="ratio-val val-warn">$611,151</div>
         </div>
         <div class="ratio-bar">
           <div class="ratio-label">p95</div>
           <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--danger)"></div></div>
-          <div class="ratio-val val-danger">1,831,414</div>
+          <div class="ratio-val val-danger">$1,831,414</div>
         </div>
         <div style="margin-top:10px;font-family:var(--mono);font-size:10px;color:var(--muted)">Razón media/mediana: <span style="color:var(--danger)">14×</span></div>
       </div>
@@ -798,17 +1057,17 @@
         <div class="ratio-bar">
           <div class="ratio-label">mediana</div>
           <div class="bar-track"><div class="bar-fill" style="width:4.6%;background:var(--ok)"></div></div>
-          <div class="ratio-val val-ok">3,236</div>
+          <div class="ratio-val val-ok">$3,236</div>
         </div>
         <div class="ratio-bar">
           <div class="ratio-label">media</div>
           <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--warn)"></div></div>
-          <div class="ratio-val val-warn">69,547</div>
+          <div class="ratio-val val-warn">$69,547</div>
         </div>
         <div class="ratio-bar">
           <div class="ratio-label">p95</div>
           <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--danger)"></div></div>
-          <div class="ratio-val val-danger">297,338</div>
+          <div class="ratio-val val-danger">$297,338</div>
         </div>
         <div style="margin-top:10px;font-family:var(--mono);font-size:10px;color:var(--muted)">Razón media/mediana: <span style="color:var(--danger)">21×</span></div>
       </div>
@@ -816,7 +1075,7 @@
     </div>
   </div>
 
-  <!-- TABLA RESUMEN PROBLEMAS -->
+  <!-- INVENTARIO DE DECISIONES -->
   <div class="section animate d5">
     <div class="section-title">
       <span class="num">04</span> Inventario de decisiones pendientes
@@ -827,69 +1086,187 @@
       <table class="data-table">
         <thead>
           <tr>
+            <th>#</th>
             <th>Problema</th>
-            <th>Tablas afectadas</th>
-            <th>Impacto</th>
+            <th>Tablas</th>
+            <th>Severidad</th>
             <th>Decisión requerida</th>
           </tr>
         </thead>
         <tbody>
+          <tr class="severity-row"><td colspan="5">Crítico</td></tr>
           <tr>
-            <td>Valores negativos en columnas monetarias</td>
-            <td>emision, siniestros, comisiones</td>
-            <td class="val-danger">Alto</td>
-            <td>Excluir / flag / valor absoluto</td>
-          </tr>
-          <tr>
-            <td>Join sin foreign key — cardinalidad M:N</td>
+            <td class="val-muted">1</td>
+            <td>Sin foreign key — join M:N por clave compuesta de 6 campos</td>
             <td>Las tres</td>
-            <td class="val-danger">Alto</td>
-            <td>Definir clave compuesta y agregar antes del join</td>
+            <td class="val-danger">Crítico</td>
+            <td>Agregar por cohorte antes del join</td>
           </tr>
           <tr>
+            <td class="val-muted">2</td>
             <td>COBERTURA ausente en comisiones</td>
             <td>comisiones</td>
-            <td class="val-warn">Medio</td>
-            <td>Join parcial emision ↔ siniestros para features de siniestralidad</td>
+            <td class="val-danger">Crítico</td>
+            <td>Join parcial emi↔sin (7 campos); com se une con 6</td>
           </tr>
           <tr>
-            <td>Encabezados embebidos (centinelas)</td>
-            <td>emision, siniestros, comisiones</td>
-            <td class="val-ok">Bajo</td>
-            <td>Filtrar filas donde SEXO == "SEXO" etc.</td>
-          </tr>
-          <tr>
-            <td>EDAD: cardinalidad 247 vs 117 vs 198</td>
-            <td>Las tres</td>
-            <td class="val-warn">Medio</td>
-            <td>Verificar si son strings distintos o rangos — agrupar en bins (18–30, 31–45…)</td>
-          </tr>
-          <tr>
-            <td>FONDO_INVERSIÓN: 75% en cero</td>
-            <td>comisiones</td>
-            <td class="val-ok">Bajo</td>
-            <td>Flag binario <code style="font-family:var(--mono);font-size:10px">es_producto_ahorro</code> para separar carteras</td>
-          </tr>
-          <tr>
+            <td class="val-muted">3</td>
             <td>Distribuciones con sesgo ×14 a ×56</td>
             <td>Las tres</td>
-            <td class="val-danger">Alto</td>
-            <td>Log-transform o familias Tweedie/Gamma para GLM baseline</td>
+            <td class="val-danger">Crítico</td>
+            <td>Familias Tweedie/Gamma para GLM; árboles toleran sesgo</td>
+          </tr>
+          <tr class="severity-row"><td colspan="5">Atención</td></tr>
+          <tr>
+            <td class="val-muted">4</td>
+            <td>Valores negativos en 7 columnas monetarias</td>
+            <td>Las tres</td>
+            <td class="val-warn">Medio</td>
+            <td>Excluir / flag binario / valor absoluto</td>
           </tr>
           <tr>
-            <td>ENTIDAD: 3 valores espurios en emision</td>
+            <td class="val-muted">5</td>
+            <td>EDAD: cardinalidad 247 vs 117 vs 198 · tipo str</td>
+            <td>Las tres</td>
+            <td class="val-warn">Medio</td>
+            <td>Inspeccionar, castear a int, decidir: continua / spline / bandas</td>
+          </tr>
+          <tr class="severity-row"><td colspan="5">Bajo</td></tr>
+          <tr>
+            <td class="val-muted">6</td>
+            <td>Filas sentinel residuales en categóricas</td>
+            <td>Las tres</td>
+            <td class="val-ok">Bajo</td>
+            <td>Filtrar filas donde columna == nombre de columna</td>
+          </tr>
+          <tr>
+            <td class="val-muted">7</td>
+            <td>ENTIDAD: 2 valores espurios en emisión</td>
             <td>emision</td>
             <td class="val-ok">Bajo</td>
-            <td>Filtrar "ENTIDAD ", "No disponible"</td>
+            <td>Filtrar "ENTIDAD " y "No disponible"</td>
+          </tr>
+          <tr>
+            <td class="val-muted">8</td>
+            <td>FONDO_DE_INVERSIÓN: 75% en cero</td>
+            <td>comisiones</td>
+            <td class="val-ok">Bajo</td>
+            <td>Flag binario <code style="font-family:var(--mono);font-size:10px">es_producto_ahorro</code></td>
+          </tr>
+          <tr>
+            <td class="val-muted">9</td>
+            <td>SUMA_ASEGURADA = 0 en algunos registros</td>
+            <td>emision</td>
+            <td class="val-ok">Bajo</td>
+            <td>Identificar coberturas de exención de pago; tratar por separado</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
+  <!-- ESTADO DEL PIPELINE -->
+  <div class="section animate d6">
+    <div class="section-title">
+      <span class="num">05</span> Estado del pipeline
+    </div>
+    <p class="section-desc">Inventario de notebooks y su estado de ejecución. El punto de entrada para modelado son los Parquet en <code style="font-family:var(--mono);font-size:12px;background:var(--surface2);padding:1px 6px;border-radius:3px">data/prepared/</code>.</p>
+
+    <div class="pipeline-grid">
+
+      <div class="pipeline-card">
+        <div class="pipeline-card-title">✅ Completo — extract_data.ipynb</div>
+        <div class="pipeline-step"><span class="step-icon">📥</span><div><div class="step-text">Lee 4 xlsx CNSF, extrae 3 hojas, agrega ANIO, concatena y guarda CSV.</div><div class="step-note">Idempotente · ruta relativa hardcodeada</div></div></div>
+        <div class="pipeline-step"><span class="step-icon">📁</span><div><div class="step-text">Output: emision_total.csv (450MB) · siniestros_total.csv (40MB) · comisiones_total.csv (108MB)</div></div></div>
+      </div>
+
+      <div class="pipeline-card">
+        <div class="pipeline-card-title">✅ Completo — rename_sheets.ipynb</div>
+        <div class="pipeline-step"><span class="step-icon">🔧</span><div><div class="step-text">Normaliza nombres de hojas en los xlsx (Emision → emision) vía XML interno.</div><div class="step-note">Operación destructiva — ya ejecutado, no repetir</div></div></div>
+      </div>
+
+      <div class="pipeline-card" style="grid-column:1/-1">
+        <div class="pipeline-card-title">✅ Completo — prepare_datasets.ipynb (pipeline ETL en 8 pasos)</div>
+        <div class="pipeline-step"><span class="step-icon">✅</span><div><div class="step-text">Carga raw con dtype=str → promueve fila 0 como encabezado → normaliza nombres (snake_case) → elimina sentinel rows (3/tabla)</div></div></div>
+        <div class="pipeline-step"><span class="step-icon">✅</span><div><div class="step-text">Casteo de numéricas a float64 → diagnóstico (nulos, estadísticas, cobertura temporal) → identifica columnas compartidas</div></div></div>
+        <div class="pipeline-step"><span class="step-icon">✅</span><div><div class="step-text">Export a Parquet (snappy) → punto de entrada: <code style="font-family:var(--mono);font-size:10px;background:var(--surface2);padding:1px 5px;border-radius:3px">data/prepared/</code></div><div class="step-note">Diferencia CSV↔Parquet: 3 filas sentinel + 1 header por tabla</div></div></div>
+      </div>
+
+      <div class="pipeline-card" style="border-color:rgba(232,136,58,0.3)">
+        <div class="pipeline-card-title" style="color:var(--warn)">⚠️ Esqueleto — main_data.ipynb</div>
+        <div class="pipeline-step"><span class="step-icon">📊</span><div><div class="step-text">Solo carga los 3 Parquet y hace display(head()).</div><div class="step-note">Aquí se construirían cohortes, features y análisis</div></div></div>
+      </div>
+
+      <div class="pipeline-card" style="border-color:rgba(232,136,58,0.25)">
+        <div class="pipeline-card-title" style="color:var(--warn)">⚠️ Nota: lightgbm no está en requirements.txt</div>
+        <div class="pipeline-step"><span class="step-icon">📦</span><div><div class="step-text">LightGBM es el challenger principal mencionado en la documentación, pero no aparece en requirements.txt. Agregar en Fase 3.</div></div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="section animate d7">
+    <div class="section-title">
+      <span class="num">06</span> Roadmap pendiente
+    </div>
+    <p class="section-desc">Cuatro fases desde la construcción de cohortes hasta la comparación final GLM vs. ML. Extraído de <code style="font-family:var(--mono);font-size:12px;background:var(--surface2);padding:1px 6px;border-radius:3px">INDUCCION_PRICING_CON_ML.md</code>.</p>
+
+    <div class="roadmap-grid">
+
+      <div class="roadmap-phase next">
+        <div class="phase-header">
+          <span class="phase-num">Fase 1</span>
+          <span class="phase-title">Construcción de cohortes</span>
+        </div>
+        <div class="phase-item"><span class="check-next">▶</span>Unir emision + siniestros por clave de 6 campos</div>
+        <div class="phase-item"><span class="check-pending">○</span>Calcular: expuestos, n_siniestros, monto_total por cohorte</div>
+        <div class="phase-item"><span class="check-pending">○</span>Derivar: frecuencia, severidad, loss_cost</div>
+        <div class="phase-item"><span class="check-pending">○</span>Diagnóstico: distribución de expuestos por cohorte (cohortes ralas)</div>
+        <div class="phase-item"><span class="check-pending">○</span>Separar train (2021–22) / validation (2023) / test (2024)</div>
+      </div>
+
+      <div class="roadmap-phase">
+        <div class="phase-header">
+          <span class="phase-num">Fase 2</span>
+          <span class="phase-title">GLM Baseline</span>
+        </div>
+        <div class="phase-item"><span class="check-pending">○</span>GLM Frecuencia: Poisson + enlace log + offset exposición</div>
+        <div class="phase-item"><span class="check-pending">○</span>GLM Severidad: Gamma + enlace log + pesos</div>
+        <div class="phase-item"><span class="check-pending">○</span>Loss cost = pred_frecuencia × pred_severidad</div>
+        <div class="phase-item"><span class="check-pending">○</span>Deviance plots, Q-Q residuales, lift curves por decil</div>
+        <div class="phase-item"><span class="check-pending">○</span>Extraer relatividades → tabla de tarifas implícita</div>
+      </div>
+
+      <div class="roadmap-phase">
+        <div class="phase-header">
+          <span class="phase-num">Fase 3</span>
+          <span class="phase-title">ML Challenger</span>
+        </div>
+        <div class="phase-item"><span class="check-pending">○</span>LightGBM Frecuencia: objetivo poisson</div>
+        <div class="phase-item"><span class="check-pending">○</span>LightGBM Severidad: objetivo gamma</div>
+        <div class="phase-item"><span class="check-pending">○</span>Tuning: CV temporal (no aleatoria)</div>
+        <div class="phase-item"><span class="check-pending">○</span>SHAP: importancia global + relatividades implícitas</div>
+        <div class="phase-item"><span class="check-pending">○</span>Agregar lightgbm a requirements.txt</div>
+      </div>
+
+      <div class="roadmap-phase">
+        <div class="phase-header">
+          <span class="phase-num">Fase 4</span>
+          <span class="phase-title">Comparación final</span>
+        </div>
+        <div class="phase-item"><span class="check-pending">○</span>Métricas: Poisson deviance, Gamma deviance, Gini</div>
+        <div class="phase-item"><span class="check-pending">○</span>Lift curves y test de calibración por decil</div>
+        <div class="phase-item"><span class="check-pending">○</span>Cohortes donde ML gana vs. pierde</div>
+        <div class="phase-item"><span class="check-pending">○</span>Discusión regulatoria (interpretabilidad)</div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <div class="footer">
-    <span>ML-for-Insurance · Facultad de Ciencias · UNAM · Mayo 2026</span>
+    <span>ML-for-Insurance · Facultad de Ciencias · UNAM · Jun 2026</span>
     <span>Fuente: CNSF · datos públicos agregados 2021–2024</span>
   </div>
 
