@@ -1,3 +1,9 @@
+<p align="center">
+  <img src=".github/cover.png" alt="ML para Pricing en Aseguradoras" width="100%"/>
+</p>
+
+---
+
 # ML-for-Insurance
 
 Investigación sobre capacidad predictiva en pricing de Seguro de Vida Individual:  
